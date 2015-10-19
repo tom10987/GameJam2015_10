@@ -1,40 +1,42 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿
+using UnityEngine;
+using UnityEngine.UI;
+
 
 public class PlayerStressdamager : MonoBehaviour {
 
-    int currentStressGauge;
-    [SerializeField]
-    int maxStressGauge = 100;
+  [SerializeField]
+  int maxStressGauge = 100;
 
-    int stressDamage; 
+  int currentStressGauge = 0;
 
-    void Start ()
-    {
-        currentStressGauge = 0;
-        maxStressGauge = 100;
+  int stressDamage = 0;
+
+  Slider _slider = null;
+
+
+  void Start() {
+    currentStressGauge = 0;
+    maxStressGauge = 100;
+
+    _slider = FindObjectOfType<Slider>();
+  }
+
+  void Update() {
+  }
+
+  void PlayerStressdamage() {
+    currentStressGauge += stressDamage;
+
+    if (maxStressGauge <= currentStressGauge) {
+
     }
-	
-	void Update ()
+  }
+
+  void OnCollisionEnter2D(Collision2D collision) {
+    //if ()
     {
-	
-	}
-
-    void PlayerStressdamage()
-    {
-        currentStressGauge += stressDamage;
-
-        if(maxStressGauge <= currentStressGauge)
-        {
-
-        }
+      PlayerStressdamage();
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        //if ()
-        {
-            PlayerStressdamage();
-        }
-    }
+  }
 }
