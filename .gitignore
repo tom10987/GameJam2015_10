@@ -3,6 +3,9 @@
 /[lL]ibrary
 /[tT]emp
 
+/[aA]pk
+*.apk
+
 *.sln
 *.csproj
 
