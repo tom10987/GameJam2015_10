@@ -1,0 +1,39 @@
+{
+    "Balloons": [
+        {
+            "Name": "BalloonAnime",
+            "ID": 0,
+            "Attribute": 0,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        },
+        {
+            "Name": "BalloonIdol",
+            "ID": 1,
+            "Attribute": 1,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        },
+        {
+            "Name": "BalloonGame",
+            "ID": 2,
+            "Attribute": 2,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        },
+        {
+            "Name": "BalloonVocaloid",
+            "ID": 3,
+            "Attribute": 3,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        },
+        {
+            "Name": "BalloonRobot",
+            "ID": 4,
+            "Attribute": 4,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        }
+    ]
+}

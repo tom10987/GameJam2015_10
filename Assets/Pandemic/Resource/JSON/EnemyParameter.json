@@ -1,0 +1,44 @@
+{
+    "Enemies": [
+        {
+            "Name": "Anime",
+            "ID": 0,
+            "HP": 50,
+            "Attribute": 0,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        },
+        {
+            "Name": "Idol",
+            "ID": 1,
+            "HP": 50,
+            "Attribute": 1,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        },
+        {
+            "Name": "Game",
+            "ID": 2,
+            "HP": 50,
+            "Attribute": 2,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        },
+        {
+            "Name": "Vocaloid",
+            "ID": 3,
+            "HP": 50,
+            "Attribute": 3,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        },
+        {
+            "Name": "Robot",
+            "ID": 4,
+            "HP": 50,
+            "Attribute": 4,
+            "AttackPower": 1.0,
+            "AttackSpeed": 1.0
+        }
+    ]
+}
