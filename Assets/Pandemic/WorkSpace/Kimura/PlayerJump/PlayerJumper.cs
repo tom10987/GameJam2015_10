@@ -36,7 +36,7 @@ public class PlayerJumper : MonoBehaviour {
             rectTrans.anchoredPosition = new Vector2(rectTrans.anchoredPosition.x, rectTrans.anchoredPosition.y + jumpPower);
             jumpPower -= 0.5f;
 
-            if(rectTrans.anchoredPosition.y < 0)
+            if(rectTrans.anchoredPosition.y < -80)
             {
                 _isJump = false;
                 rectTrans.anchoredPosition = startPos;

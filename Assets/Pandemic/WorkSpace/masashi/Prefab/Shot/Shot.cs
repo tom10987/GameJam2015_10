@@ -14,7 +14,7 @@ public class Shot : MonoBehaviour
     GameObject _enemy = null;
 
     const string _playerName = "Player";
-    const string _enemyName = "EnemyNear";
+    const string _enemyName = "Boss";
 
     float _angle = 0.0f;
 
@@ -37,18 +37,15 @@ public class Shot : MonoBehaviour
     RectTransform rectTrans = null;
     RectTransform goalRectTrans = null;
 
-    void Awake()
-    {
-        _enemy = GameObject.Find(_enemyName);
-        _player = GameObject.Find(_playerName);
-        image = transform.GetChild(0).GetComponent<Image>();
-        var random = Random.Range(0, sprite.Count);
-        image.sprite = sprite[random];
-    }
-
     void Start()
     {
-        movepath[0].Set(
+
+      _enemy = GameObject.Find(_enemyName);
+      _player = GameObject.Find(_playerName);
+      image = transform.GetChild(0).GetComponent<Image>();
+      var random = Random.Range(0, sprite.Count);
+      image.sprite = sprite[random];
+    movepath[0].Set(
             _player.transform.localPosition.x,
             _player.transform.localPosition.y,
             _player.transform.localPosition.z);
@@ -71,8 +68,9 @@ public class Shot : MonoBehaviour
         //  "easetype", iTween.EaseType.easeOutSine));
 
         rectTrans = GetComponent<RectTransform>();
-        goalRectTrans = _enemy.GetComponent<RectTransform>();
-        var playerRect = _player.GetComponent<RectTransform>();
+      goalRectTrans = _enemy.GetComponent<RectTransform>();
+
+    var playerRect = _player.GetComponent<RectTransform>();
         rectTrans.anchoredPosition = new Vector2(playerRect.anchoredPosition3D.x, playerRect.anchoredPosition3D.y);
         rectTrans.localScale = Vector2.one;
 
@@ -82,7 +80,8 @@ public class Shot : MonoBehaviour
 
     void Update()
     {
-        if (isHit) return;
+
+    if (isHit) return;
 
         //１秒経ったら縮小をかける
         if (_time >= (60 * _goEnemyTime / 2))

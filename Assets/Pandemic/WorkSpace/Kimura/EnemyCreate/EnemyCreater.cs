@@ -15,15 +15,12 @@ public class EnemyCreater : MonoBehaviour {
 
   public Vector3 enemyPosition { get { return gameObject.transform.position; } }
   
-  void Start() {
+  void Awake() {
     ClassCommitteeEenmyCreate();
   }
 
   public void ClassCommitteeEenmyCreate() {
-    GameObject classCommitteeEenmyManager_ = GameObject.Find("EnemyManager");
-
-    GameObject game_object = Instantiate(ClassCommittee);
-    game_object.transform.SetParent(classCommitteeEenmyManager_.transform);
+    ClassCommittee.SetActive(true);
   }
 
   public void StudentCouncilPresidentEenmyCreate() {
