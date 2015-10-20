@@ -1,28 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShotEasing : MonoBehaviour
+public class Shot : MonoBehaviour
 {
     GameObject _enemy = null;
 
     const string _enemyName = "Enemy";
 
-    float _angle = 0;
+    float _angle = 0.0f;
 
     int _time = 0;
 
     Vector3[] movepath = new Vector3[3];
 
-    [SerializeField, Range(-5, 5), Tooltip("弾が動くXの範囲")]
-    float _xMoveRange;
-    [SerializeField, Range(0, 3), Tooltip("弾が動く高さの範囲")]
-    float _heightMoveRange;
+    [SerializeField, Range(0.0f, 5.0f), Tooltip("弾が動くXの範囲")]
+    float _xMoveRange = 3.0f;
+    [SerializeField, Range(0.0f, 3.0f), Tooltip("弾が動く高さの範囲")]
+    float _heightMoveRange = 3.0f;
 
-    [SerializeField, Range(0000.1f, 0.001f), Tooltip("弾が小さくなる速度")]
-    float _sizeChangeSpped;
+    [SerializeField, Range(0.00001f, 0.1f), Tooltip("弾が小さくなる速度")]
+    float _sizeChangeSpped = 0.01f;
 
     [SerializeField, Range(1, 3), Tooltip("弾が敵に届く秒数")]
-    int _goEnemyTime;
+    int _goEnemyTime = 2;
 
     //--------------------------------
 
@@ -30,26 +30,31 @@ public class ShotEasing : MonoBehaviour
     {
         _enemy = GameObject.Find(_enemyName);
 
-        for (int i = 0; i < 2; ++i)
-        {
-            movepath[i].Set(
-                Random.Range(-_xMoveRange, _xMoveRange),
-                Random.Range(0.0f, _heightMoveRange),
-                Random.Range(-2.5f, -2.5f));
-        }
+        movepath[0].Set(
+            Random.Range(-_xMoveRange, 0.0f),
+            Random.Range(0.5f, _heightMoveRange),
+            Random.Range(-2.5f, -2.5f));
+        movepath[1].Set(
+            Random.Range(0.0f, _xMoveRange),
+            Random.Range(0.5f, _heightMoveRange),
+            Random.Range(-2.5f, -2.5f));
         movepath[2].Set(
             _enemy.transform.localPosition.x,
-            _enemy.transform.localPosition.y,
+            _enemy.transform.localPosition.y + 2.0f,
             _enemy.transform.localPosition.z);
     }
 
     void Update()
     {
-        transform.localScale -=
-            new Vector3(
-                _sizeChangeSpped,
-                _sizeChangeSpped,
-                _sizeChangeSpped);
+        //１秒経ったら縮小をかける
+        if (_time >= (60 * _goEnemyTime / 2))
+        {
+            transform.localScale -=
+                new Vector3(
+                    _sizeChangeSpped,
+                    _sizeChangeSpped,
+                    _sizeChangeSpped);
+        }
 
         _time++;
 
