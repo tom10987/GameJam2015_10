@@ -4,7 +4,7 @@ using System.IO;
 
 public class EnemyLikeStatus : MonoBehaviour {
 
-    [SerializeField]
+    //[SerializeField]
     int enemyHP;
     float  attackPower;
     int attribute;
@@ -15,7 +15,7 @@ public class EnemyLikeStatus : MonoBehaviour {
 	void Start ()
     {
         enemyParameter = GetComponent<EnemyParameter>();
-        Debug.Log(enemyParameter.GetAttribute(2));
+        EnemyAttributeStatusGeneration();
     }
 	
 	void Update ()
@@ -24,10 +24,14 @@ public class EnemyLikeStatus : MonoBehaviour {
 	}
 
 
-    void EnemyLikeStatusManeger()
+    void EnemyAttributeStatusGeneration()
     {
-        attribute = Random.Range(0,3);
+        attribute = Random.Range(0,4);
         enemyParameter.GetAttribute(attribute);
+    }
 
+    void CheckAttributeStatus()
+    {
+        //if()
     }
 }
