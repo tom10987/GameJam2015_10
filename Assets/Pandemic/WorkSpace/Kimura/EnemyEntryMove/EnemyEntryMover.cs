@@ -32,11 +32,11 @@ public class EnemyEntryMover : MonoBehaviour {
 
     void leftEnemyEnteymove()
     {
-         iTween.MoveTo(gameObject, iTween.Hash("x", 200, "time", 3.0f,"islocal", true));
+         iTween.MoveTo(gameObject, iTween.Hash("x", 5, "time", 3.0f));
     }
 
     void UnderEnemyEnteymove()
     {
-        iTween.MoveTo(gameObject, iTween.Hash("y", -50, "time", 10.0f, "islocal", true));
+        iTween.MoveTo(gameObject, iTween.Hash("y", -3, "time", 10.0f));
     }
 }

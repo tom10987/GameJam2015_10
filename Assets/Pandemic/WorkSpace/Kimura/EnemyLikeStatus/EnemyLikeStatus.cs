@@ -5,9 +5,10 @@ using System.IO;
 public class EnemyLikeStatus : MonoBehaviour {
 
     //[SerializeField]
-    int enemyHP;
+    float  enemyHP;
     float  attackPower;
     int attribute;
+    
 
 
     EnemyParameter enemyParameter;
@@ -27,11 +28,27 @@ public class EnemyLikeStatus : MonoBehaviour {
     void EnemyAttributeStatusGeneration()
     {
         attribute = Random.Range(0,4);
-        enemyParameter.GetAttribute(attribute);
+        enemyParameter.GetAttribute(attribute);//IDでやった方がよい
+        enemyHP = enemyParameter.GetHP(attribute);
+
     }
 
     void CheckAttributeStatus()
     {
-        //if()
+        //if(enemyParameter.GetAttribute(attribute) == /*enemyParameter.GetAttribute(attribute)*/)
+        //{
+        //    enemyHP -= enemyParameter.GetAttackPower(attribute);
+        //        if(enemyHP <= 0 )
+        //{
+
+        //}
+        //}
+        //else
+        //    if(!(enemyParameter.GetAttribute(attribute) == /*enemyParameter.GetAttribute(attribute)*/))
+        //{
+        //    //反撃の弾の関数を入れる
+        //}
     }
+
+    
 }

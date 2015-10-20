@@ -9,8 +9,11 @@ public class PlayerJumper : MonoBehaviour {
 
     PlayerParameter playerParameter;
 
-	void Start ()
+    public Vector3 playerPosition { get { return gameObject.transform.position; } }
+
+    void Start ()
     {
+       
         playerParameter = GetComponent<PlayerParameter>();
         _jumpPower = playerParameter.getJumpPower;
     }
@@ -23,7 +26,7 @@ public class PlayerJumper : MonoBehaviour {
         }
     }
 
-        void PlayerJump()
+    public void PlayerJump()
     {
         if (_isJump == true)
         {
