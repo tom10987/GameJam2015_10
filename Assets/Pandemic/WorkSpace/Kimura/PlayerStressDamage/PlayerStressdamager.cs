@@ -12,31 +12,25 @@ public class PlayerStressdamager : MonoBehaviour {
 
   int stressDamage = 0;
 
-  Slider _slider = null;
+  Image _bar = null;
 
 
   void Start() {
     currentStressGauge = 0;
     maxStressGauge = 100;
+    //stressDamage = FindObjectOfType<EnemyParameter>().GetAttackPower();
+    stressDamage = 5;
 
-    _slider = FindObjectOfType<Slider>();
+    _bar = GameObject.Find("GaugeBar").GetComponent<Image>();
   }
 
   void Update() {
+    var ratio = currentStressGauge / (float)maxStressGauge;
+    _bar.fillAmount = ratio;
   }
 
-  void PlayerStressdamage() {
+  public void PlayerStressdamage() {
     currentStressGauge += stressDamage;
-
-    if (maxStressGauge <= currentStressGauge) {
-
-    }
-  }
-
-  void OnCollisionEnter2D(Collision2D collision) {
-    //if ()
-    {
-      PlayerStressdamage();
-    }
+    if (maxStressGauge <= currentStressGauge) { Application.LoadLevel("Result"); }
   }
 }
