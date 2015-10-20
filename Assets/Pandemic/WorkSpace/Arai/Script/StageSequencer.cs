@@ -33,10 +33,13 @@ public class StageSequencer : MonoBehaviour
 
     public void Transition(Type type)
     {
-        _current_type = type;
-        var stage_num = (uint)type;
-        _back_ground_setting.StageChange(stage_num);
-        _stage_name_setting.StageChange(stage_num);
+        Transition((uint)type);
+    }
+
+    public void Transition(uint id)
+    {
+        _back_ground_setting.StageChange(id);
+        _stage_name_setting.StageChange(id);
     }
 
 
