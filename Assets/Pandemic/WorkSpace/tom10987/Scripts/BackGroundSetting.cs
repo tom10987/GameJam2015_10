@@ -8,19 +8,16 @@ public class BackGroundSetting : MonoBehaviour {
   GameObject[] _stageText = null;
 
 
-  void Start() {
-    _stageText[0] = GameObject.Find("MainStage");
-    _stageText[1] = GameObject.Find("LastStage");
-  }
-
   public void StageChange(uint stageNum) {
-    if (_stageText[stageNum].activeInHierarchy) { return; }
-
     // 値が配列の範囲外なら範囲内に収める
-    stageNum = stageNum / (uint)_stageText.Length;
+    var length = (uint)_stageText.Length;
+    var num = (stageNum / length);
+    if (num > length) { num = length; }
 
-    for (uint index = 0; index < _stageText.Length; ++index) {
-      var isActive = (index == stageNum);
+    if (_stageText[num].activeInHierarchy) { return; }
+
+    for (uint index = 0; index < (uint)_stageText.Length; ++index) {
+      var isActive = (index == num);
       _stageText[index].SetActive(isActive);
     }
   }
