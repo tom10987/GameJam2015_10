@@ -1,10 +1,16 @@
 fileFormatVersion: 2
 guid: 7b8ace5e942ec5e47a5e496f1d638c55
-timeCreated: 1445244694
+timeCreated: 1445304243
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - _bolloonPrefab: {fileID: 111406, guid: 21556198d825ea14e86fb34f9ba5959e, type: 2}
+  - _animeIconPrefab: {instanceID: 0}
+  - _idolIconPrefab: {instanceID: 0}
+  - _gameIconPrefab: {instanceID: 0}
+  - _vocalRobIconPrefab: {instanceID: 0}
+  - _robotIconPrefab: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
