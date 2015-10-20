@@ -20,6 +20,11 @@ public class TouchController : MonoBehaviour {
     get { return isAndroid || isIPhonePlayer; }
   }
 
+  static public bool IsMouseClick() {
+    if (isSmartDevice) { return false; }
+    return Input.GetMouseButtonDown(0);
+  }
+
   static public bool IsTouchBegan() {
     if (Input.touchCount <= 0) { return false; }
 
