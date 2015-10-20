@@ -11,7 +11,11 @@ public class ShotGenerator : MonoBehaviour {
 
 
   void Start() {
-    _parent = GameObject.Find("Shot").transform;
+    var shotObj = GameObject.Find("Shot");
+    if (shotObj != null)
+    {
+        _parent = shotObj.transform;
+    }
   }
 
   public void AnimFire() {
