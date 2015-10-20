@@ -4,13 +4,16 @@ using System.Collections;
 public class PlayerJumper : MonoBehaviour {
 
     [SerializeField]
-    float _jumpForce = 400.0f;
+    float _jumpPower;
     bool _isJump = false;
+
+    PlayerParameter playerParameter;
 
 	void Start ()
     {
-	
-	}
+        playerParameter = GetComponent<PlayerParameter>();
+        _jumpPower = playerParameter.getJumpPower;
+    }
 	
 	void Update ()
     {
@@ -18,13 +21,13 @@ public class PlayerJumper : MonoBehaviour {
         {
             PlayerJump();
         }
-        }
+    }
 
         void PlayerJump()
     {
         if (_isJump == true)
         {
-            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
             _isJump = false;
         }
 
