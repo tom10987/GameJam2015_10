@@ -1,42 +1,47 @@
-﻿
-using UnityEngine;
-
+﻿using UnityEngine;
+using System.Collections;
 
 public class PlayerJumper : MonoBehaviour {
 
-  bool _isJump = false;
+    [SerializeField]
+    float _jumpPower;
+    bool _isJump = false;
 
-  PlayerParameter playerParameter;
+    PlayerParameter playerParameter;
 
-  public Vector3 playerPosition { get { return gameObject.transform.position; } }
-  Vector3 defaultPos = Vector3.zero;
-  
-  float _jumpPower = 0f;
+    public Vector3 playerPosition { get { return gameObject.transform.position; } }
 
-
-  void Start() {
-    //playerParameter = GetComponent<PlayerParameter>();
-    //_jumpPower = playerParameter.getJumpPower;
-    defaultPos = transform.position;
-  }
-
-  void Update() {
-    if (Input.GetKeyDown(KeyCode.A)) { PlayerJump(); }
-
-    if (transform.position.y > defaultPos.y) {
-      _jumpPower -= Time.deltaTime;
-      transform.position += Vector3.up * _jumpPower;
+    void Start ()
+    {
+       
+        playerParameter = GetComponent<PlayerParameter>();
+        _jumpPower = playerParameter.getJumpPower;
     }
-    else if (_isJump) {
-      _jumpPower = 0f;
-      _isJump = false;
+	
+	void Update ()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            PlayerJump();
+        }
     }
-  }
 
-  public void PlayerJump() {
-    if (!_isJump) {
-      _isJump = true;
-      _jumpPower = 10f;
+    public void PlayerJump()
+    {
+        if (_isJump == true)
+        {
+            gameObject.GetComponent<Rigidbody2D>().AddForce(Vector2.up * _jumpPower, ForceMode2D.Impulse);
+            _isJump = false;
+        }
+
     }
-  }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.name == "Floor")
+        {
+            _isJump = true;
+        }
+    }
+
 }
