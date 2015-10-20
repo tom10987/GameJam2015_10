@@ -3,15 +3,17 @@ using System.Collections;
 
 public class Shot : MonoBehaviour
 {
+    GameObject _player = null;
     GameObject _enemy = null;
 
+    const string _playerName = "Player";
     const string _enemyName = "Enemy";
 
     float _angle = 0.0f;
 
     int _time = 0;
 
-    Vector3[] movepath = new Vector3[3];
+    Vector3[] movepath = new Vector3[4];
 
     [SerializeField, Range(0.0f, 5.0f), Tooltip("弾が動くXの範囲")]
     float _xMoveRange = 3.0f;
@@ -26,19 +28,27 @@ public class Shot : MonoBehaviour
 
     //--------------------------------
 
-    void Start()
+    void Awake()
     {
         _enemy = GameObject.Find(_enemyName);
+        _player = GameObject.Find(_playerName);
+    }
 
+    void Start()
+    {
         movepath[0].Set(
+            _player.transform.localPosition.x,
+            _player.transform.localPosition.y,
+            _player.transform.localPosition.z);
+        movepath[1].Set(
             Random.Range(-_xMoveRange, 0.0f),
             Random.Range(0.5f, _heightMoveRange),
             Random.Range(-2.5f, -2.5f));
-        movepath[1].Set(
+        movepath[2].Set(
             Random.Range(0.0f, _xMoveRange),
             Random.Range(0.5f, _heightMoveRange),
             Random.Range(-2.5f, -2.5f));
-        movepath[2].Set(
+        movepath[3].Set(
             _enemy.transform.localPosition.x,
             _enemy.transform.localPosition.y + 2.0f,
             _enemy.transform.localPosition.z);
