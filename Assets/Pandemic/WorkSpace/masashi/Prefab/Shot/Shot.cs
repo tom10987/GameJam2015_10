@@ -94,9 +94,9 @@ public class Shot : MonoBehaviour
             //       _sizeChangeSpped);
         }
 
-        //_time += 0.05f;
+        _time += 0.25f;
 
-        rectTrans.Translate(5.0f * Time.deltaTime, Mathf.Sin(_time), 0.0f);
+        rectTrans.Translate(30.0f * Time.deltaTime, Mathf.Cos(_time), 0.0f);
 
         if (_time == (60 * _goEnemyTime) ||
             transform.localScale.y <= 0.0f)
