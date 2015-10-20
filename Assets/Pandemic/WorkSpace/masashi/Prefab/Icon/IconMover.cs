@@ -22,9 +22,7 @@ public class IconMover : MonoBehaviour
 
         for (var i = 0; i < 3; ++i)
         {
-
             if (transform.localPosition.x < _enemyPos.x)
-
                 iTween.MoveTo(gameObject, _enemyPos, 1);
         }
 

@@ -1,11 +1,11 @@
 fileFormatVersion: 2
 guid: 7b8ace5e942ec5e47a5e496f1d638c55
-timeCreated: 1445314321
+timeCreated: 1445322142
 licenseType: Free
 MonoImporter:
   serializedVersion: 2
   defaultReferences:
-  - _bolloonPrefab: {fileID: 111406, guid: 21556198d825ea14e86fb34f9ba5959e, type: 2}
+  - _bolloonPrefab: {fileID: 170682, guid: 5e2871b46c495ec4c9e44a69be57720e, type: 2}
   - _animeIconPrefab: {fileID: 168558, guid: 511f2a84e954c0944a48d224457172cc, type: 2}
   - _idolIconPrefab: {fileID: 111062, guid: e5c5e44af28dca945917b746d0a7c536, type: 2}
   - _gameIconPrefab: {fileID: 175538, guid: ed654c158bf04a14bae19fce12538d75, type: 2}
