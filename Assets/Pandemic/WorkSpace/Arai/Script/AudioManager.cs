@@ -115,43 +115,43 @@ public class AudioManager : MonoBehaviour
     {
         for (var i = 0; i < BGM_LIST.Length; ++i)
         {
-            _bgm_list.Add(i, new AudioSource());
+            _bgm_list.Add(i, gameObject.AddComponent<AudioSource>());
             _bgm_list[i].clip = BGM_LIST[i];
         }
 
         for (var i = 0; i < SE_LIST.Length; ++i)
         {
-            _se_list.Add(i, new AudioSource());
+            _se_list.Add(i, gameObject.AddComponent<AudioSource>());
             _se_list[i].clip = SE_LIST[i];
         }
 
         for (var i = 0; i < PLAYER_ATTACK_SE.Length; ++i)
         {
-            player_attack_se_list.Add(new AudioSource());
+            player_attack_se_list.Add(gameObject.AddComponent<AudioSource>());
             player_attack_se_list[i].clip = PLAYER_ATTACK_SE[i];
         }
 
         for (var i = 0; i < PLAYER_DAMAGE_SE.Length; ++i)
         {
-            player_damage_se_list.Add(new AudioSource());
+            player_damage_se_list.Add(gameObject.AddComponent<AudioSource>());
             player_damage_se_list[i].clip = PLAYER_DAMAGE_SE[i];
         }
 
         for (var i = 0; i < CLASS_STUDENT_ARROW_SE.Length; ++i)
         {
-            class_student_arrow_se_list.Add(new AudioSource());
+            class_student_arrow_se_list.Add(gameObject.AddComponent<AudioSource>());
             class_student_arrow_se_list[i].clip = CLASS_STUDENT_ARROW_SE[i];
         }
 
         for (var i = 0; i < KOUTYOU_ARROW_SE.Length; ++i)
         {
-            koutyou_arrow_se_list.Add(new AudioSource());
+            koutyou_arrow_se_list.Add(gameObject.AddComponent<AudioSource>());
             koutyou_arrow_se_list[i].clip = KOUTYOU_ARROW_SE[i];
         }
 
         for (var i = 0; i < STUDENT_MASTER_ARROW_SE.Length; ++i)
         {
-            student_master_arrow_se_list.Add(new AudioSource());
+            student_master_arrow_se_list.Add(gameObject.AddComponent<AudioSource>());
             student_master_arrow_se_list[i].clip = STUDENT_MASTER_ARROW_SE[i];
         }
     }
