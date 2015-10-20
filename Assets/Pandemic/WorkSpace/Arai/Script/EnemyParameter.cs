@@ -33,6 +33,7 @@ public class EnemyParameter : MonoBehaviour
         public string _name;
         public float _attacK_power;
         public float _attack_speed;
+        public float _interval_pop_time;
         public int _id;
         public int _hp;
         public Attribute _attribute;
@@ -69,6 +70,18 @@ public class EnemyParameter : MonoBehaviour
     public float GetAttackSpeed(int id)
     {
         return GetAttackSpeed(GetName(id));
+    }
+
+    public float GetIntervalPopTime(string name)
+    {
+        var hash_code = name.GetHashCode();
+        if (!_enemy_table.ContainsKey(hash_code)) return 0.0f;
+        return _enemy_table[hash_code]._interval_pop_time;
+    }
+
+    public float GetIntervalPopTime(int id)
+    {
+        return GetIntervalPopTime(GetName(id));
     }
 
     public int GetId(string name)
@@ -192,6 +205,7 @@ public class EnemyParameter : MonoBehaviour
             enemy_data._hp = (int)enemy["HP"].Get<long>();
             enemy_data._attacK_power = (float)enemy["AttackPower"].Get<double>();
             enemy_data._attack_speed = (float)enemy["AttackSpeed"].Get<double>();
+            enemy_data._interval_pop_time = (float)enemy["IntervalPopTime"].Get<double>();
 
             var enemy_attribute_num = (int)enemy["Attribute"].Get<long>();
             enemy_data._attribute = enemy_attribute_table[enemy_attribute_num];
